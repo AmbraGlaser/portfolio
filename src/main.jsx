@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // pages
 import AppLayout from "./pages/AppLayout";
 import ErrorPage from "./pages/ErrorLayout";
@@ -12,7 +13,7 @@ const routes = [
   {
     element: <AppLayout />,
     errorElement: <ErrorPage />,
-    childern: [
+    children: [
       {
         path: "/",
         element: <Home />,
@@ -25,7 +26,7 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes, { basename: "/portfolio" });
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
